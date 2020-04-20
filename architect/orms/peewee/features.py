@@ -9,7 +9,7 @@ from ..bases import BasePartitionFeature, BaseOperationFeature
 
 class OperationFeature(BaseOperationFeature):
     def execute(self, sql, autocommit=True):
-        return self.model_cls._meta.database.execute_sql(sql.replace('%', '%%'), require_commit=autocommit)
+        return self.model_cls._meta.database.execute_sql(sql.replace('%', '%%'), commit=autocommit)
 
 
 class PartitionFeature(BasePartitionFeature):
